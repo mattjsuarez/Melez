@@ -1,0 +1,44 @@
+* {
+	margin:0px;
+	padding:0px;
+}
+#header {
+	width:100%;
+	border:1px solid black;
+	height:50px;
+	display:block;
+	margin:auto auto;
+	text-align:center;
+}
+#header h1 {
+	display: block;
+	float:middle;
+}
+#navigation {
+	color:red;
+	float:left;
+}
+#navigation ul li {
+	list-style: none;
+	display: inline;
+}
+#dash {
+	width:100%;
+	margin:auto auto;
+	overflow: auto;
+}
+#summary {
+	width:20%;
+	float:left;
+	border:1px solid black;
+}
+#data {
+	width:70%;
+	float:left;
+	border: 1px solid black;
+}
+.container {
+	width:500px;
+	float:left;
+	border:1px solid black;
+}
