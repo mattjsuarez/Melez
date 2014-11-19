@@ -1,9 +1,12 @@
 body {
-	background-color:#B2DFDB;
+	background-color: gray;
+	/*background-color:#B2DFDB;*/
 }
 #header {
-	background-color:#009688;
+	background-color: white;
+	/*background-color:#009688;*/
 }
 .container {
-	background-color:#795548;
+	background-color: white;
+	/*background-color:#795548;*/
 }
