@@ -28,23 +28,19 @@
 	display: inline;
 }
 #dash {
-	width:100%;
+	display: block;
 	margin:auto auto;
 	overflow: auto;
 	margin-top: 20px;
 }
-#data {
-	width:100%;
-}
 .container {
-	width:45%;
-	float: left;
+	float:left;
+	width:450px;
 	text-align: center;
 	border:1px solid black;
 	border-radius: 7px;
 	margin:10px;
 }
 table {
-	text-align: center;
-	font-size:24px;
+	width:100%;
 }
