@@ -1,9 +1,11 @@
-header, nav, footer {
+body {
 	background-image: url('../img/dash.jpg');
 	background-repeat: repeat;
+}
+header, nav, footer {
 	color:#FFFFFF;
 }
-#content {
+#content, footer {
 	background-image:url('../img/other.jpg');
 	background-repeat: repeat;
 }

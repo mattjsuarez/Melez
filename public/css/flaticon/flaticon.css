@@ -11,9 +11,11 @@
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
 	font-family: Flaticon;
-    font-size: 20px;
-font-style: normal;
-}.flaticon-buildings2:before {
+    font-size:1.5em;
+    padding:5px;
+	font-style: normal;
+}
+.flaticon-buildings2:before {
 	content: "\e000";
 }
 .flaticon-chart15:before {
