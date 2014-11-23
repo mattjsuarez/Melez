@@ -1,6 +1,9 @@
 body {
-	background-image: url('../img/dash.jpg');
+	background-image: url('../img/other.jpg');
 	background-repeat: repeat;
+}
+header {
+	background-color:#262e31; 
 }
 header, nav, footer {
 	color:#FFFFFF;
@@ -15,9 +18,10 @@ nav i {
 nav i:hover {
 	opacity:1;
 }
-#content, footer {
-	background-image:url('../img/other.jpg');
-	background-repeat: repeat;
+h3 i {
+	font-weight: lighter;
+	padding:0px;
+	margin:0px;
 }
 .container {
 	background-color:#FFFFFF;
