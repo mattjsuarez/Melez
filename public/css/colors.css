@@ -1,12 +1,16 @@
 header, nav, footer {
-	background-image: url('../img/other.jpg');
+	background-image: url('../img/dash.jpg');
 	background-repeat: repeat;
 	color:#FFFFFF;
 }
 #content {
-	background-image:url('../img/dash.jpg');
+	background-image:url('../img/other.jpg');
 	background-repeat: repeat;
 }
 .container {
 	background-color:#FFFFFF;
+}
+article h3 {
+	color:#373f42;
+	border-bottom:1px dashed #373f42;
 }
