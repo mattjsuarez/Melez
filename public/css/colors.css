@@ -5,6 +5,16 @@ body {
 header, nav, footer {
 	color:#FFFFFF;
 }
+i {
+	color:#009688;
+}
+nav i {
+	opacity:0.4;
+	-webkit-transition: all 0.2s linear;
+}
+nav i:hover {
+	opacity:1;
+}
 #content, footer {
 	background-image:url('../img/other.jpg');
 	background-repeat: repeat;
