@@ -13,8 +13,8 @@ function changePage(pageData) {
         type:'GET',
         dataType:'json'
     });
-    request.done(function( msg ) {
-        console.log(msg);
+    request.done(function(msg) {
+        console.log(typeof(msg));
         //populatePage(msg);
     });
     request.fail(function(jqXHR, textStatus) {
