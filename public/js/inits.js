@@ -8,6 +8,18 @@ $(document).ready(function() {
 });
 function changePage(pageData) {
     var requested = pageData;
+    var request = $.ajax({
+        url:'/updatePage/'+requested,
+        type:'GET',
+        dataType:'json'
+    });
+    request.done(function( msg ) {
+        console.log(msg);
+        //populatePage(msg);
+    });
+    request.fail(function(jqXHR, textStatus) {
+        console.log("Request failed: " + textStatus);
+    });
 }
 function populatePage(returnedData) {
     var cityNames = returnedData[0];
