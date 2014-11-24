@@ -1,9 +1,11 @@
-Buffalo, NY, USA
-42.9047N
-78.8494W
-Aomori City, Tohoku, Japan
-40.8167N
-140.7500E
-Helsinki, Finland
-60.1700N
-24.9384E
+{
+	"City 1":"Buffalo, NY, USA",
+	42.9047N
+	78.8494W
+	"City 2":Aomori City, Tohoku, Japan
+	"Longitude":40.8167N
+	"Latitude":"140.7500E"
+	"City 3":"Helsinki, Finland"
+	60.1700N
+	24.9384E
+}

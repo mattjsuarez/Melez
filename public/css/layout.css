@@ -41,6 +41,12 @@ article h3 {
 	padding-left:5px;
 	font-size: 2em;
 }
+#charts {
+	width:100%;
+}
+#map {
+	width:100%;
+}
 table {
 	width:90%;
 	height:90%;

@@ -6,16 +6,16 @@
 	<link rel="stylesheet" type="text/css" href="css/colors.css" media="all"/>
 	<link rel="stylesheet" type="text/css" href="css/flaticon/flaticon.css" media="all"/>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="js/inits.js"></script>
 </head>
 <body>
 <header>
 	<h1>Melez Climate Dashboard</h1>
 	<nav id="navigation">
-	<i data-nav="rain" class="flaticon-raindrops2"></i>
-	<i data-nav="snow" class="flaticon-snowflake144"></i>
-	<i data-nav="wind" class="flaticon-windy4"></i>
-</nav>
+		<i data-nav="rain" class="nav-icon flaticon-raindrops2"></i>
+		<i data-nav="snow" class="nav-icon flaticon-snowflake144"></i>
+		<i data-nav="wind" class="nav-icon flaticon-windy4"></i>
+		<p>Please select climate data</p>
+	</nav>
 </header>
 <section id="content">
 	<section id="left">
@@ -24,22 +24,20 @@
 			<table>
 				<thead>
 					<tr>
-						<td>Ranking</td>
+						<td>Table order</td>
 						<td>Name</td>
 					</tr>
 				</thead>
 				<tbody>
-					<tr><td>1</td><td>City 1</td></tr>
-					<tr><td>2</td><td>City 2</td></tr>
-					<tr><td>3</td><td>City 3</td></tr>
+					<tr><td>1</td><td></td></tr>
+					<tr><td>2</td><td></td></tr>
+					<tr><td>3</td><td></td></tr>
 				</tbody>
 			</table>
 		</article>
-		<article id="charts" class="container">
+		<article class="container">
 			<h3><i class="flaticon-chart15"></i>How does it look?</h3>
-		<a class="graph-nav"></a>
-		<a class="graph-nav"></a>
-		<a class="graph-nav"></a>
+			<section id="charts"></section>
 		</article>
 	</section>
 	<section id="right">
@@ -53,19 +51,23 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr><td>1</td><td>City 1</td></tr>
-					<tr><td>2</td><td>City 2</td></tr>
-					<tr><td>3</td><td>City 3</td></tr>
+					<tr><td>1</td><td></td></tr>
+					<tr><td>2</td><td></td></tr>
+					<tr><td>3</td><td></td></tr>
 				</tbody>
 			</table>		
 		</article>
-		<article id="map" class="container">
+		<article class="container">
 			<h3><i class="flaticon-facebook30"></i>Where in the world?</h3>
+			<section id="map"></section>
 		</article>
 	</section>
 </section>
 <footer>
 	<p>Created by Ivan Melnikov and Matt Su&aacute;rez</p>
 </footer>
+<script src="js/highcharts.js"></script>
+<script src="js/ammap.js"></script>
+<script src="js/inits.js"></script>
 </body>
 </html>
