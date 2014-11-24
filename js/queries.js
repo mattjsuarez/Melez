@@ -37,8 +37,5 @@ chartData.on('result',function(res) {
 			console.log(coordArray);
 		}
 	});
-<<<<<<< Updated upstream
 });
-=======
 });
->>>>>>> Stashed changes
