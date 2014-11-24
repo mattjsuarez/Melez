@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var Client = require('mariasql');
 var inspect = require('util').inspect;
 c.connect({
@@ -21,3 +22,6 @@ chartData.on('result',function(res) {
 		console.log("Y coord: "+inspect(row.cityYCoordinate));
 	});
 });
+=======
+Queries.
+>>>>>>> origin/master
