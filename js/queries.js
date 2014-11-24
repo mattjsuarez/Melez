@@ -10,19 +10,19 @@ c.connect({
     password: 'mjsuarez_pw',
     db: 'mjsuarez_db'
 });
-var cityNames = c.query("SELECT * FROM cityNames");
-var nameArray = new Array();
-var i=0;
-cityNames.on('result',function(res) {
-	res.on('row',function(row) {
-		var objectIndex = i+1;
-		nameArray[i] = JSON.stringify({"Name":inspect(row.CityName)});
-		i++;
-		if(i==3) {
-			console.log(nameArray);
-		}
-	});
-});
+//var cityNames = c.query("SELECT * FROM cityNames");
+//var nameArray = new Array();
+//var i=0;
+//cityNames.on('result',function(res) {
+//	res.on('row',function(row) {
+//		var objectIndex = i+1;
+//		nameArray[i] = JSON.stringify({"Name":inspect(row.CityName)});
+//		i++;
+//		if(i==3) {
+//			console.log(nameArray);
+//		}
+//	});
+//});
 
 
 // var requestedWeather = "snow"; //req.param("weatherType");
