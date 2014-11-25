@@ -33,17 +33,10 @@ router.get('retrieveFavNumByFN/:firstName', function(req, res) {
 	favNum.on('result',function(res) {
 		res.on('row',function(row) {
 			var obj = JSON.stringify(inspect(row));
-			res.end(obj);
+			res.send(obj);
 		}
 	});
 });
-
-
-
-
-
-
-
 
 var cityNames = c.query("SELECT * FROM cityWeather WHERE weatherType = 'snow'");
 var nameArray = new Array();
