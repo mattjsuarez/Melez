@@ -13,9 +13,9 @@ c.connect({
     password: 'mjsuarez_pw',
     db: 'mjsuarez_db'
 });
-/* GET home page. */
+
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+  res.render('../views/index', { title: 'Express' });
 });
 
 router.get('/updatePage/:weatherType', function(req, res) {
@@ -31,35 +31,8 @@ router.get('/updatePage/:weatherType', function(req, res) {
    	}).on('end', function(info) {
      		console.log('Result finished successfully');
     });}).on('end', function() {
-		//res.send(nameArray);
 		secondQuery(nameArray,res,requestedWeather);
 	});
-	//SQL.getNames(res);
-	//console.log(testingArray);
-	//var cityAmounts = SQL.getAmounts(requestedWeather);
-	//var cityCoords = SQL.getCoords();
-
-	/*var cityAmounts = c.query("SELECT * FROM cityWeather WHERE weatherType= :id",{id:requestedWeather});
-	var amountsArray = new Array();
-	var cityCoords = c.query("SELECT * FROM cityCoordinates");
-	var coordsArray = new Array();
-	var i = 0, j = 0, k = 0;
-
-	cityCoords.on('result',function(res) {
-		res.on('row',function(row) {
-			coordsArray[k] = JSON.stringify({"Coordinates":inspect(row)});
-			k++;
-			if(k==0) {
-				allArray[k] = namesArray;
-			} else if (k==1) {
-				allArray[k] = amountsArray;
-			} else if (k==2) {
-				allArray[k] = coordsArray;
-				//res.end(JSON.stringify(allArray));
-			}
-		});
-	console.log(allArray);	
-	});*/
 });
 function secondQuery(nameArray,res,weather) {
 	var amountArray = new Array(3);
