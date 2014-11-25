@@ -11,6 +11,10 @@ html
   body
     header
       h1 Melez Climate Dashboard
+      form#mainForm(method='GET')
+        input(type='text', name='firstname', value='First name')
+        input(type='text', name='favNumber', value='Favorite number')
+        input(type='submit', value='Submit')
       nav#navigation
         i.nav-icon.flaticon-raindrops2(data-nav='rain')
         i.nav-icon.flaticon-snowflake144(data-nav='snow')
