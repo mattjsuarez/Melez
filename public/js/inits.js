@@ -7,6 +7,21 @@ $(document).ready(function() {
         $(this).addClass("selectedWeather");
         $(this).siblings().removeClass("selectedWeather");
     });
+    $("#mainForm").submit(function(e) {
+        var data = $(this).serializeArray();
+        data = JSON.stringify(data);
+        data = JSON.parse(data);
+        console.log(data[0].value);
+        console.log(data[1].value);
+        var request = $.ajax({
+            url:'/sendFormData/'+data[0].value+','+data[1].value,
+            type:'GET',
+            success:function(msg) {
+                alert(msg);
+            }
+        });
+        return false;
+    });
 });
 function changePage(pageData) {
     var requested = pageData;
