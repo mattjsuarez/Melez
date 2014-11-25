@@ -10,37 +10,86 @@ c.connect({
     password: 'mjsuarez_pw',
     db: 'mjsuarez_db'
 });
-//var cityNames = c.query("SELECT * FROM cityNames");
-//var nameArray = new Array();
-//var i=0;
-//cityNames.on('result',function(res) {
-//	res.on('row',function(row) {
-//		var objectIndex = i+1;
-//		nameArray[i] = JSON.stringify({"Name":inspect(row.CityName)});
-//		i++;
-//		if(i==3) {
-//			console.log(nameArray);
-//		}
-//	});
-//});
 
 
-// var requestedWeather = "snow"; //req.param("weatherType");
-// var cityAmounts = c.query("SELECT * FROM cityWeather WHERE weatherType= :id",{id:requestedWeather}); //snow"); //
-// var snowArray = new Array();
-// var i = 0;
-// var chartData = c.query("SELECT * FROM cityCoordinates");
-// var coordArray = new Array(3);
-// coordArray[0] = new Array(2);
-// coordArray[1] = new Array(2);
-// coordArray[2] = new Array(2);
-// cityAmounts.on('result',function(res) {
-// 	res.on('row',function(row) {
-// 		snowArray[i] = JSON.stringify({"June":inspect(row)});
-// 		i++;
-// 		console.log(snowArray);
-// 	});
-// });
+
+//var doQuery = c.query("INSERT INTO favNumber VALUES ('Matt','17')");
+//console.log(doQuery);
+var doQuery = c.query("SELECT * FROM favNumber WHERE firstName='Matt'");
+doQuery.on('result', function(res) {
+	res.on('row',function(row){
+		var obj = JSON.stringify(inspect(row));
+		if(obj == "") {
+			c.query("INSERT INTO favNumber VALUES ('Matt','17'");
+		}
+	})
+})
+// if(c.query("SELECT EXISTS(SELECT * FROM favNumber WHERE firstName='Matt')") == 1) {
+// 	console.log("TRUEEEE");
+// } else {
+// 	console.log("FALSEEEE");
+// }
+
+//store a name and a favorite number into the database if name is not already in database
+router.get('sendFormData/:firstName,favoriteNumber', function(req, res) {
+	if(c.query("SELECT * FROM favNumber WHERE firstName= :fn IS NULL", {fn:firstName}) != 1) {
+		var doQuery = c.query("INSERT INTO favNumber VALUES (:id, :num)",{id:firstName,num:favoriteNumber});
+		res.send("Input success.")
+	} else {
+		res.send("Name already in database.");
+	}
+});
+
+//retrieve a favorite number from the database using first name
+router.get('retrieveFavNumByFN/:firstName', function(req, res) {
+	var favNum = c.query("SELECT * FROM favNumber WHERE firstName= :id", {id:firstName});
+	res.end(JSON.stringify(favNum));
+});
+
+
+
+
+
+
+
+
+var cityNames = c.query("SELECT * FROM cityWeather WHERE weatherType = 'snow'");
+var nameArray = new Array();
+var i=0;
+cityNames.on('result',function(res) {
+	res.on('row',function(row) {
+		var objectIndex = i+1;
+		nameArray[i] = JSON.stringify(inspect(row));
+		//console.log(nameArray[i] + " BLAHBLAHBLAH");
+		i++;
+		if(i==3) {
+			//console.log(nameArray);
+		}
+	});
+});
+
+
+
+
+
+
+
+var requestedWeather = "snow"; //req.param("weatherType");
+var cityAmounts = c.query("SELECT * FROM cityWeather WHERE weatherType= :id",{id:requestedWeather}); //snow"); //
+var snowArray = new Array();
+var i = 0;
+var chartData = c.query("SELECT * FROM cityCoordinates");
+var coordArray = new Array(3);
+coordArray[0] = new Array(2);
+coordArray[1] = new Array(2);
+coordArray[2] = new Array(2);
+cityAmounts.on('result',function(res) {
+	res.on('row',function(row) {
+		snowArray[i] = JSON.stringify({"June":inspect(row)});
+		i++;
+		//console.log(snowArray);
+	});
+});
 
 router.get('updateInfo/:weatherType', function(req, res) {
 	var requestedWeather = req.param("weatherType");
