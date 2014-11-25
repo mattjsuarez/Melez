@@ -17,7 +17,7 @@ router.get('/', function(req, res) {
 });
 
 //store a name and a favorite number into the database if name is not already in database
-router.get('sendFormData/:firstName,favoriteNumber', function(req, res) {
+router.get('sendFormData/:firstName/:favoriteNumber', function(req, res) {//,favoriteNumber', function(req, res) {
 	var doQuery = c.query("SELECT * FROM favNumber WHERE firstName= :fn", {fn:firstName});
 	doQuery.on('result', function(res) {
 		res.on('row',function(row) {
