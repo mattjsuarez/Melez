@@ -5,6 +5,8 @@
 	<link rel="stylesheet" type="text/css" href="css/layout.css" media="all"/>
 	<link rel="stylesheet" type="text/css" href="css/colors.css" media="all"/>
 	<link rel="stylesheet" type="text/css" href="css/flaticon/flaticon.css" media="all"/>
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
@@ -29,37 +31,25 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr><td>1</td><td></td></tr>
-					<tr><td>2</td><td></td></tr>
-					<tr><td>3</td><td></td></tr>
+					<tr><td>1</td><td class="cityNamePrimary"></td></tr>
+					<tr><td>2</td><td class="cityNamePrimary"></td></tr>
+					<tr><td>3</td><td class="cityNamePrimary"></td></tr>
 				</tbody>
 			</table>
 		</article>
 		<article class="container">
-			<h3><i class="flaticon-chart15"></i>How does it look?</h3>
-			<section id="charts"></section>
+			<h3><i class="flaticon-chart15"></i><p>How does it look?</p></h3>
+			<section class="chart"></section>
 		</article>
 	</section>
 	<section id="right">
-		<article id="amounts" class="container">
-			<h3><i class="flaticon-number19"></i>How much?</h3>
-			<table>
-				<thead>
-					<tr>
-						<td>Ranking</td>
-						<td>Name</td>
-					</tr>
-				</thead>
-				<tbody>
-					<tr><td>1</td><td></td></tr>
-					<tr><td>2</td><td></td></tr>
-					<tr><td>3</td><td></td></tr>
-				</tbody>
-			</table>		
+		<article class="container">
+			<h3><i class="flaticon-chart15"></i><p>How much?</p></h3>
+			<section class="chart"></section>		
 		</article>
 		<article class="container">
-			<h3><i class="flaticon-facebook30"></i>Where in the world?</h3>
-			<section id="map"></section>
+			<h3><i class="flaticon-chart15"></i><p>More data?</p></h3>
+			<section class="chart"></section>
 		</article>
 	</section>
 </section>
@@ -67,7 +57,6 @@
 	<p>Created by Ivan Melnikov and Matt Su&aacute;rez</p>
 </footer>
 <script src="js/highcharts.js"></script>
-<script src="js/ammap.js"></script>
 <script src="js/inits.js"></script>
 </body>
 </html>

@@ -74,4 +74,4 @@ router.get('updateInfo/:weatherType', function(req, res) {
 	allArray[1] = amountsArray;
 	allArray[2] = coordsArray;
 	res.end(JSON.stringify(allArray));
-});});
+});
