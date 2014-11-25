@@ -11,39 +11,31 @@ c.connect({
     db: 'mjsuarez_db'
 });
 
-
-
-//var doQuery = c.query("INSERT INTO favNumber VALUES ('Matt','17')");
-//console.log(doQuery);
-var doQuery = c.query("SELECT * FROM favNumber WHERE firstName='Matt'");
-doQuery.on('result', function(res) {
-	res.on('row',function(row){
-		var obj = JSON.stringify(inspect(row));
-		if(obj == "") {
-			c.query("INSERT INTO favNumber VALUES ('Matt','17'");
-		}
-	})
-})
-// if(c.query("SELECT EXISTS(SELECT * FROM favNumber WHERE firstName='Matt')") == 1) {
-// 	console.log("TRUEEEE");
-// } else {
-// 	console.log("FALSEEEE");
-// }
-
 //store a name and a favorite number into the database if name is not already in database
 router.get('sendFormData/:firstName,favoriteNumber', function(req, res) {
-	if(c.query("SELECT * FROM favNumber WHERE firstName= :fn IS NULL", {fn:firstName}) != 1) {
-		var doQuery = c.query("INSERT INTO favNumber VALUES (:id, :num)",{id:firstName,num:favoriteNumber});
-		res.send("Input success.")
-	} else {
-		res.send("Name already in database.");
-	}
+	var doQuery = c.query("SELECT * FROM favNumber WHERE firstName= :fn", {fn:firstName});
+	doQuery.on('result', function(res) {
+		res.on('row',function(row) {
+			var obj = JSON.stringify(inspect(row));
+			if(obj == "") {
+				c.query("INSERT INTO favNumber VALUES (:id, :num)",{id:firstName,num:favoriteNumber});
+				res.send("Input success.")
+			} else {
+				res.send("Name already in database.");
+			}
+		});
+	});
 });
 
 //retrieve a favorite number from the database using first name
 router.get('retrieveFavNumByFN/:firstName', function(req, res) {
 	var favNum = c.query("SELECT * FROM favNumber WHERE firstName= :id", {id:firstName});
-	res.end(JSON.stringify(favNum));
+	favNum.on('result',function(res) {
+		res.on('row',function(row) {
+			var obj = JSON.stringify(inspect(row));
+			res.end(obj);
+		}
+	});
 });
 
 
