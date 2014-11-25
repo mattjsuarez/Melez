@@ -1,0 +1,59 @@
+!!! 5
+html
+  head
+    title Melez Climate Dashboard
+    link(rel='stylesheet', type='text/css', href='css/layout.css', media='all')
+    link(rel='stylesheet', type='text/css', href='css/colors.css', media='all')
+    link(rel='stylesheet', type='text/css', href='css/flaticon/flaticon.css', media='all')
+    link(rel='shortcut icon', href='img/favicon.ico', type='image/x-icon')
+    link(rel='icon', href='img/favicon.ico', type='image/x-icon')
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+  body
+    header
+      h1 Melez Climate Dashboard
+      nav#navigation
+        i.nav-icon.flaticon-raindrops2(data-nav='rain')
+        i.nav-icon.flaticon-snowflake144(data-nav='snow')
+        i.nav-icon.flaticon-windy4(data-nav='wind')
+        p Please select climate data
+    section#content
+      section#left
+        article#names.container
+          h3
+            i.flaticon-buildings2
+            | Which cities?
+          table
+            thead
+              tr
+                td Table order
+                td Name
+            tbody
+              tr
+                td 1
+                td.cityNamePrimary
+              tr
+                td 2
+                td.cityNamePrimary
+              tr
+                td 3
+                td.cityNamePrimary
+        article.container
+          h3
+            i.flaticon-chart15
+            p How does it look?
+          section.chart
+      section#right
+        article.container
+          h3
+            i.flaticon-chart15
+            p How much?
+          section.chart
+        article.container
+          h3
+            i.flaticon-chart15
+            p More data?
+          section.chart
+    footer
+      p Created by Ivan Melnikov and Matt Suárez
+    script(src='js/highcharts.js')
+    script(src='js/inits.js')
