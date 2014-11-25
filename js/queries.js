@@ -2,6 +2,7 @@ var Client = require('mariasql');
 var express =require('express');
 var inspect = require('util').inspect;
 var router = express.Router();
+var jade = require('jade');
 
 var c = new Client();
 c.connect({
@@ -9,6 +10,10 @@ c.connect({
     user: 'mjsuarez',
     password: 'mjsuarez_pw',
     db: 'mjsuarez_db'
+});
+
+router.get('/', function(req, res) {
+  res.render('../views/dashboard', { title: 'Express' });
 });
 
 //store a name and a favorite number into the database if name is not already in database
