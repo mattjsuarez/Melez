@@ -1,4 +1,4 @@
-@font-face {
+@font-face {  /*style icons*/
 	font-family: "Flaticon";
 	src: url("flaticon.eot");
 	src: url("flaticon.eot#iefix") format("embedded-opentype"),
@@ -7,7 +7,7 @@
 	url("flaticon.svg") format("svg");
 	font-weight: normal;
 	font-style: normal;
-}
+}  /*style icons*/
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
 	font-family: Flaticon;
@@ -16,26 +16,26 @@
 	font-style: normal;
 }
 .flaticon-buildings2:before {
-	content: "\e000";
+	content: "\e000";  /*style icons*/
 }
 .flaticon-chart15:before {
-	content: "\e001";
+	content: "\e001";  /*style icons*/
 }
 .flaticon-facebook30:before {
-	content: "\e002";
+	content: "\e002";  /*style icons*/
 }
 .flaticon-number19:before {
-	content: "\e003";
+	content: "\e003";  /*style icons*/
 }
 .flaticon-raindrops2:before {
-	content: "\e004";
+	content: "\e004";  /*style icons*/
 	font-size:4em;
 }
 .flaticon-snowflake144:before {
-	content: "\e005";
+	content: "\e005";  /*style icons*/
 	font-size:4em;
 }
 .flaticon-windy4:before {
-	content: "\e006";
+	content: "\e006";  /*style icons*/
 	font-size:4em;
 }

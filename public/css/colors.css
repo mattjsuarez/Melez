@@ -2,31 +2,31 @@ body {
 	background-image: url('../img/other.jpg');
 	background-repeat: repeat;
 }
-header {
+header { /*change background color of header*/
 	background-color:#262e31; 
 }
-header, nav, footer {
+header, nav, footer { /*change color of these tags to white*/
 	color:#FFFFFF;
 }
 i {
 	color:#009688;
 }
-nav i {
+nav i { /*apply an oppacity with a linear transition in 1/5 seconds*/
 	opacity:0.4;
 	-webkit-transition: all 0.2s linear;
 }
-nav i:hover {
+nav i:hover { /*when hovered over, the oppacity becomes 100%*/
 	opacity:1;
 }
-h3 i {
+h3 i {/*remove margin and padding and make the font-weight lighter*/
 	font-weight: lighter;
 	padding:0px;
 	margin:0px;
 }
-.container {
+.container {/*background color = white*/
 	background-color:#FFFFFF;
 }
-article h3 {
+article h3 {/*adds a small, dashed border*/
 	color:#373f42;
 	border-bottom:1px dashed #373f42;
 }

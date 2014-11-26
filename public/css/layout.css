@@ -1,8 +1,8 @@
-* {
+* { /*remove padding and margins from all*/
 	margin:0px;
 	padding:0px;
 }
-body {
+body { /*hides this element*/
 	display:none;
 }
 header, nav {
@@ -11,32 +11,32 @@ header, nav {
 	display:block;
 	margin:auto auto;
 	text-align: center;
-}
-header {
+} 
+header {/*define an absolute height*/
 	height:125px;
 }
 .selectedWeather {
 	color:#B2DFDB;
 	opacity:1;
 }
-#content {
+#content { /*apply relative positioning*/
 	width:100%;
 	display:block;
 	margin:auto auto;
 	overflow:auto;
 }
-#left {
+#left { /*apply relative positioning*/
 	float:left;
 	width:50%;
 }
-#right {
+#right { /*apply relative positioning*/
 	float:left;
 	width:50%;
 }
 h3>p {
 	display:inline;
 }
-.container {
+.container { /*apply relative positioning*/
 	text-align: center;
 	margin:10px;
 	width:90%;
@@ -49,33 +49,33 @@ article h3 {
 	padding-left:5px;
 	font-size: 2em;
 }
-.charts {
+.charts { /*apply relative positioning*/
 	width:100%;
 	height:400px;
 }
-.highcharts-container {
+.highcharts-container { /*apply relative positioning*/
 	width:100% !important;
 }
-.highcharts-legend-item {
+.highcharts-legend-item {  /*hide element*/
 	display:none;
 }
-#map {
+#map { /*apply relative positioning*/
 	width:100%;
 }
-table {
+table { /*apply relative positioning*/
 	width:90%;
 	height:90%;
 	text-align: center;
 }
-table td {
+table td {   /*apply absolute properties*/
 	font-size: 2em;
 }
-footer {
+footer {  /*apply absolue height and relative width*/
 	height:40px;
 	width:100%;
 	text-align: right;
 }
-footer p {
+footer p {  /*apply absolute properties*/
 	font-size: 1.4em;
 	padding:5px;
 	margin-right:10px;

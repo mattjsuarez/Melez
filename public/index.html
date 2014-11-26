@@ -1,36 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Melez Climate Dashboard</title>
+<head><!--begin head-->
+	<title>Melez Climate Dashboard</title><!--title of the webpage-->
+	<!--include css stylesheets-->
 	<link rel="stylesheet" type="text/css" href="css/layout.css" media="all"/>
 	<link rel="stylesheet" type="text/css" href="css/colors.css" media="all"/>
 	<link rel="stylesheet" type="text/css" href="css/flaticon/flaticon.css" media="all"/>
+	<!--include icons-->
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+	<!--include scripts-->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-</head>
-<body>
-<header>
-	<h1>Melez Climate Dashboard</h1>
+</head><!--end head-->
+<body><!--begin body-->
+<header><!--begin header-->
+	<h1>Melez Climate Dashboard</h1><!--Title on actual page-->
+	<!--a form for submitting a name and a favorite number to the database-->
+	<form method="GET" id="mainForm"> 
+    	<input type="text" name="firstname" value="First name">
+    	<input type="text" name="favNumber" value="Favorite number">
+    	<input type="submit" value="Submit">
+	</form>
+	<!--buttons for changing data. they are icons-->
 	<nav id="navigation">
 		<i data-nav="rain" class="nav-icon flaticon-raindrops2"></i>
 		<i data-nav="snow" class="nav-icon flaticon-snowflake144"></i>
 		<i data-nav="wind" class="nav-icon flaticon-windy4"></i>
 		<p>Please select climate data</p>
 	</nav>
-</header>
-<section id="content">
+</header><!--end header-->
+<section id="content"><!--this is the top left div containing city names-->
 	<section id="left">
 		<article id="names" class="container">
-			<h3><i class="flaticon-buildings2"></i>Which cities?</h3>
+			<h3><i class="flaticon-buildings2"></i>Which cities?</h3> <!--a title for the div with an icon of a few buildings-->
 			<table>
-				<thead>
+				<thead><!--row of the table that specifies what goes in a particular column-->
 					<tr>
 						<td>Table order</td>
 						<td>Name</td>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody><!--different rows of info in the table containing names of cities-->
 					<tr><td>1</td><td class="cityNamePrimary"></td></tr>
 					<tr><td>2</td><td class="cityNamePrimary"></td></tr>
 					<tr><td>3</td><td class="cityNamePrimary"></td></tr>
@@ -54,7 +64,7 @@
 	</section>
 </section>
 <footer>
-	<p>Created by Ivan Melnikov and Matt Su&aacute;rez</p>
+	<p>Created by Ivan Melnikov and Matt Su&aacute;rez</p><!--tag containing the names of the authors-->
 </footer>
 <script src="js/highcharts.js"></script>
 <script src="js/inits.js"></script>

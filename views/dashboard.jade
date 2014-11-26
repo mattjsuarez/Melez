@@ -1,37 +1,53 @@
 !!! 5
 html
   head
+    //begin head
     title Melez Climate Dashboard
+    //title of the webpage
+    //include css stylesheets
     link(rel='stylesheet', type='text/css', href='css/layout.css', media='all')
     link(rel='stylesheet', type='text/css', href='css/colors.css', media='all')
     link(rel='stylesheet', type='text/css', href='css/flaticon/flaticon.css', media='all')
+    //include icons
     link(rel='shortcut icon', href='img/favicon.ico', type='image/x-icon')
     link(rel='icon', href='img/favicon.ico', type='image/x-icon')
+    //include scripts
     script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+  //end head
   body
+    //begin body
     header
+      //begin header
       h1 Melez Climate Dashboard
+      //Title on actual page
+      //a form for submitting a name and a favorite number to the database
       form#mainForm(method='GET')
         input(type='text', name='firstname', value='First name')
         input(type='text', name='favNumber', value='Favorite number')
         input(type='submit', value='Submit')
+      //buttons for changing data. they are icons
       nav#navigation
         i.nav-icon.flaticon-raindrops2(data-nav='rain')
         i.nav-icon.flaticon-snowflake144(data-nav='snow')
         i.nav-icon.flaticon-windy4(data-nav='wind')
         p Please select climate data
+    //end header
     section#content
+      //this is the top left div containing city names
       section#left
         article#names.container
           h3
             i.flaticon-buildings2
             | Which cities?
+          //a title for the div with an icon of a few buildings
           table
             thead
+              //row of the table that specifies what goes in a particular column
               tr
                 td Table order
                 td Name
             tbody
+              //different rows of info in the table containing names of cities
               tr
                 td 1
                 td.cityNamePrimary
@@ -59,5 +75,6 @@ html
           section.chart
     footer
       p Created by Ivan Melnikov and Matt Suárez
+      //tag containing the names of the authors
     script(src='js/highcharts.js')
     script(src='js/inits.js')
