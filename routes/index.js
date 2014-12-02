@@ -13,9 +13,9 @@ c.connect({
     db: 'mjsuarez_db'
 });
 
-//connect to index.jade file to render it
+//connect to dashboard.jade file to render it
 router.get('/', function(req, res) {
-  res.render('../views/index', { title: 'Express' });
+  res.render('../views/dashboard', { title: 'Express' });
 });
 
 //a function to return an array(3) of information that will be used to generate charts
