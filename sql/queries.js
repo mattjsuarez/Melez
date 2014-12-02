@@ -1,63 +1,84 @@
 var Client = require('mariasql');
+var express =require('express');
 var inspect = require('util').inspect;
-var c = new Client();
+var router = express.Router();
+var jade = require('jade');
 
-//connect to database	
+//create a client to connect to the database
+var c = new Client();
 c.connect({
-    host: 'localhost',
+	host: 'localhost',
     user: 'mjsuarez',
     password: 'mjsuarez_pw',
     db: 'mjsuarez_db'
 });
 
-//returns the names of all of the cities
-exports.getNames = function(response) {
-	var i=0;
-	var nameArray = new Array(3);
-	c.query("SELECT * FROM cityNames").on('result', function(res) { //generate a query to the database
-   	res.on('row', function(row) {
-     	console.log('Result row: ' + inspect(row));
-		nameArray[i] = JSON.stringify(inspect(row));
-		i++;
-   	}).on('error', function(err) {
-     		console.log('Result error: ' + inspect(err));
-   	}).on('end', function(info) {
-     		console.log('Result finished successfully');
-    });}).on('end', function() {
-   		console.log('Done with all results');
-   		response.setHeader('Content-Type', 'application/json');
-		response.write(JSON.stringify(nameArray));
-		response.end();
-		response.send("Test");
-	});
-}
-
-//returns the amounts weather units for a particular weatherType for each of the 3 cities
-exports.getAmounts = function(weather) {
-	var amountQuery = c.query("SELECT * FROM cityWeather WHERE weatherType= :id",{id:weather}); //query for all of the weatherType data
-	var amountArray = new Array(3); //create an array. each index will hold data for a particular city
-	var i=0;		
-	amountQuery.on('result',function(res) { 
-	res.on('row',function(row) {
-		//populate an array with relevant data
-		amountArray[i] = JSON.stringify(inspect(row));
-		i++;
-	});
-	console.log(amountArray);
+//renders dashboard.jade in the ../views/ directory
+router.get('/', function(req, res) {
+  res.render('../views/dashboard', { title: 'Express' });
 });
-}
 
-//return the coordinates of each city
-exports.getCoords = function() {
-	var coordQuery = c.query("SELECT * FROM cityCoordinates"); //generate a query for city coordinates
-	var coordArray = new Array(3); //an array to store each of the 3 cities' coordinates
-	var i=0;
-	coordQuery.on('result',function(res) {
-			res.on('row',function(row) {
-				//store the coordinates away
-				coordArray[i] = JSON.stringify(inspect(row));
-				i++;
+//store a name and a favorite number into the database if name is not already in database
+router.get('sendFormData/:firstName/:favoriteNumber', function(req, res) {
+	var doQuery = c.query("SELECT * FROM favNumber WHERE firstName= :fn", {fn:firstName}); //checks database to see if a name is entered into it
+	doQuery.on('result', function(res) {
+		res.on('row',function(row) {
+			var obj = JSON.stringify(inspect(row)); //stringify result
+			if(obj == "") { //if the database does NOT contain this name...
+				c.query("INSERT INTO favNumber VALUES (:id, :num)",{id:firstName,num:favoriteNumber}); //insert it into the database along with the favorite number
+				res.send("Input success.")
+			} else {
+				res.send("Name already in database."); //otherwise, declare that the name was already in the database
+			}
 		});
-		console.log(coordArray);
 	});
-}
+});
+
+//retrieve a favorite number from the database using first name
+router.get('retrieveFavNumByFN/:firstName', function(req, res) {
+	var favNum = c.query("SELECT * FROM favNumber WHERE firstName= :id", {id:firstName}); //if only a name was submitted, then retrieve the favorite number of the name
+	favNum.on('result',function(res) {
+		res.on('row',function(row) {
+			var obj = JSON.stringify(inspect(row));
+			res.send(obj); //...and send the name and number back
+		}
+	});
+});
+
+//this function returns an array(3)(14) of weather data
+router.get('updateInfo/:weatherType', function(req, res) {
+	var requestedWeather = req.param("weatherType"); //return the value of the parameter
+	var cityNames = c.query("SELECT * FROM cityNames"); //generate query for the cityNames table
+	var namesArray = new Array();
+	var cityAmounts = c.query("SELECT * FROM cityWeather WHERE weatherType= :id",{id:requestedWeather}); //generates query for data from cityWeather table for entrys of weatherType requestedWeather
+	var amountsArray = new Array();
+	var cityCoords = c.query("SELECT * FROM cityCoordinates"); //generate query for cityCoordinates table
+	var coordsArray = new Array();
+	var i = 0, j = 0, k = 0;
+	cityNames.on('result',function(res) {
+		res.on('row',function(row) {
+			//populates array with names of cities
+			namesArray[i] = JSON.stringify({"Names":inspect(row)});
+			i++;
+		});
+	});
+	cityAmounts.on('result',function(res) {
+		res.on('row',function(row) {
+			//populates array with weatherData of each of 3 cities
+			amountsArray[j] = JSON.stringify({"Amounts":inspect(row)});
+			j++;
+		});
+	});
+	cityCoords.on('result',function(res) {
+		res.on('row',function(row) {
+			//populates array with coordinates of each of 3 cities
+			coordsArray[k] = JSON.stringify({"Coordinates":inspect(row)});
+			k++;
+		});
+	});
+	var allArray = new Array(3);
+	allArray[0] = namesArray;
+	allArray[1] = amountsArray;
+	allArray[2] = coordsArray;
+	res.end(JSON.stringify(allArray)); //return an array of arrays
+});
