@@ -13,11 +13,6 @@ c.connect({
     db: 'mjsuarez_db'
 });
 
-//connect to index.jade file to render it
-router.get('/', function(req, res) {
-  res.render('../views/index', { title: 'Express' });
-});
-
 //a function to return an array(3) of information that will be used to generate charts
 router.get('/updatePage/:weatherType', function(req, res) {
 	var requestedWeather = req.param("weatherType"); //retrieve the value from the variable weatherType
