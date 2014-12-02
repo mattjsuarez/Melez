@@ -24,13 +24,17 @@ $(document).ready(function() {
         data = JSON.stringify(data);
         data = JSON.parse(data);
         //Send request to server, to database
+	console.log(data[0].value+data[1].value);
         var request = $.ajax({
             //Router intercepts this URL
-            url:'/sendFormData/'+data[0].value+','+data[1].value,
+            url:'/sendFormData/'+data[0].value+'/'+data[1].value,
             type:'GET',
             //Alert window on function finish
             success:function(msg) {
                 alert(msg);
+            },
+	     error:function(jqXHR,textStatus,errorThrown) {
+		  alert(jqXHR + textStatus + errorThrown);
             }
         });
         //Prevent page refresh on form submit
