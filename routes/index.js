@@ -13,11 +13,16 @@ c.connect({
     db: 'mjsuarez_db'
 });
 
+<<<<<<< HEAD
 //renders dashboard.jade in the ../views/ directory
+=======
+//connect to dashboard.jade file to render it
+>>>>>>> origin/master
 router.get('/', function(req, res) {
   res.render('../views/dashboard', { title: 'Express' });
 });
 
+<<<<<<< HEAD
 
 //store a name and a favorite number into the database if name is not already in database
 router.get('sendFormData/:firstName/:favoriteNumber', function(req, res) {
@@ -46,6 +51,8 @@ router.get('retrieveFavNumByFN/:firstName', function(req, res) {
 			res.send(obj); //...and send the name and number back
 });});});
 
+=======
+>>>>>>> origin/master
 //a function to return an array(3) of information that will be used to generate charts
 router.get('/updatePage/:weatherType', function(req, res) {
 	var requestedWeather = req.param("weatherType"); //retrieve the value from the variable weatherType
